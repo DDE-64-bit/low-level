@@ -1,4 +1,7 @@
+# files
 *.o
 *.file
 *.out
-./asm/asm
+
+# env
+.vscode/
