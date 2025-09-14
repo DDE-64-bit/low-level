@@ -3,7 +3,7 @@
 # include <stdlib.h>
 
 int main(){
-    char buffer[4];
+    char buffer[32];
 
     while (1){
         printf("Enter a number (0 to exit) \n");
