@@ -2,6 +2,8 @@
 *.o
 *.file
 *.out
+*.txt
+*.bin
 
 # env
 .vscode/
