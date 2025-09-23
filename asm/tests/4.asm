@@ -98,12 +98,6 @@ _sum:
     mov rdx, 2
     syscall
     
-    mov rcx, 0
-    mov rax, byte [firstNumberInput]
-    mov al, [firstNumberInput]
-    add rcx, al
-
-    mov al, [secondNumberInput]
-    add rcx, al
+    ; add first byte of input to 
 
     ret
