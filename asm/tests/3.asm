@@ -13,11 +13,12 @@ _start:
     call _printText1
     call _getInput
 
+    add rax, 48
     mov al, [inputBuf]
-    ; add rax, 48
 
+    ; cmp rax, 97
 
-    cmp rax, 97
+    cmp rax, 53
 
     je _printEqualText
 
