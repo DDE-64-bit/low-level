@@ -9,8 +9,9 @@
     xor rbx, rbx
 
 %%printLoop:
-    inc rsi
     inc rbx
+    inc rsi
+    
     mov cl, [rsi]
     cmp cl, 0
 
