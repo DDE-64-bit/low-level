@@ -38,22 +38,37 @@ _start:
 
     exit 0
 
-; input: rax
-; output: print string at rax
-; _print:
-;     push rax
-;     mov rbx, 0
-; _printLoop:
-;     inc rax
-;     inc rbx
-;     mov cl, [rax]
-;     cmp cl, 0
+input: rax
+output: print string at rax
+_print:
+    push rax
+    mov rbx, 0
+_printLoop:
+    inc rax
+    inc rbx
+    mov cl, [rax]
+    cmp cl, 0
 
-;     jnz _printLoop
+    jnz _printLoop
 
+    mov rax, 1
+    mov rdi, 1
+    pop rsi
+    mov rdx, rbx
+    syscall
+    ret
+
+; section .data
+;     text: db "Text", 10
+
+; section .text
+; _start:
 ;     mov rax, 1
 ;     mov rdi, 1
-;     pop rsi
-;     mov rdx, rbx
+;     lea rsi, [rel text]
+;     mov rdx, 5
 ;     syscall
-;     ret
+    
+;     mov rax, 60
+;     mov rdi, 0
+;     syscall
