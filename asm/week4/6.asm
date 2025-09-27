@@ -1,14 +1,14 @@
-section .text
-    global _start
+section .data
+    inputText: db "Input: "
+    inputLen equ $ - inputText
+    printText: db "Print Text", 10
+    printTextLen equ $ - printText
 
 section .bss
     input: resb 10 ; 9 + \n
 
-section .data
-    inputText: db "Input: ", 10
-    inputLen equ $ - inputText
-    printText: db "Print Text", 10
-    printTextLen equ $ - printText
+section .text
+    global _start
 
 _start:
     ; write text
@@ -25,4 +25,10 @@ _start:
     mov rdx, 9
     syscall
 
-    ;
+    
+
+
+    ; exit
+    mov rax, 60
+    mov rdi, 0
+    syscall
