@@ -59,32 +59,39 @@ _start:
 
     ; reg, use
     ; rbx,          amount of input bytes
-    ; rbp (bl),     loop counter
+    ; rbp (bpl),     loop counter
     ; r12 (r12b),   number
 
     ; set bl (8bit) to 0
-    xor bl, bl
-
-    ; move byte to al
-    mov r12b, byte [input]
-
-    ; ptr to r12b
-    mov byte [buf], r12b
+    xor bpl, bpl
 
     ; debug print to check result
     mov rax, 1
     mov rdi, 1
-    lea rsi, byte [buf]
+    lea rsi, [rel input]
     mov rdx, 1
     syscall
 
     ; use lea rsi, [input] to get access to the needed value
-
-
-
     ; start loop
     _loop:
+    cmp bpl, [input]
+    je _doneLoop
 
+    ; print the desired text
+    mov rax, 1
+    mov rdi, 1
+    lea rsi, [rel printText]
+    mov rdx, rbx
+    syscall
+
+    ; inc counter
+    inc bpl
+
+    ; jump to _loop
+    jmp _loop
+
+    _doneLoop:
     ; exit
     mov rax, 60
     mov rdi, 0
