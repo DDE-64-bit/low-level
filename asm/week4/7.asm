@@ -16,7 +16,8 @@ print_world:
     push rbp
     mov rbp, rsp
 
-    sub rsp, 7
+    sub rsp, 16
+
     ; world
     mov byte [rsp + 0], 32
     mov byte [rsp + 1], 'W'
@@ -32,7 +33,7 @@ print_world:
     mov rdx, 7
     syscall
 
-    add rsp, 7
+    add rsp, 16
     pop rbp
     
     ret
@@ -41,8 +42,8 @@ print_hello:
     push rbp
     mov rbp, rsp
 
-    ; reserve 5 bytes on the stack
-    sub rsp, 5
+    ; reserve 16 bytes on the stack
+    sub rsp, 16
 
     mov byte [rsp + 0], 'H'
     mov byte [rsp + 1], 'e'
@@ -56,7 +57,7 @@ print_hello:
     mov rdx, 5
     syscall
 
-    add rsp, 5
+    add rsp, 16
     
     pop rbp
     ret
