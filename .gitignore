@@ -10,6 +10,7 @@
 *.nam
 *.til
 *.i64
+*.ld
 
 # env
 .vscode/
