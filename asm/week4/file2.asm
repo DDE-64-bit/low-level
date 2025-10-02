@@ -13,6 +13,7 @@ _start:
     call _openFile
     call _getInput
     call _writeInput
+    call _closeFile
 
     ; exit
     mov rax, 60
@@ -60,4 +61,12 @@ _writeInput:
     mov rdx, r13
     syscall
 
+    ret
+
+_closeFile:
+    ; close file
+    mov rax, 3
+    mov rdi, r12
+    syscall
+    
     ret
