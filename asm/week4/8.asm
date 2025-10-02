@@ -18,7 +18,7 @@ _printFromStack:
     ; adds 16 to the stack
     sub rsp, 16
 
-    mov byte [rsp + 0], 'h'
+    mov byte [rsp + 0], 'H'
     mov byte [rsp + 1], 'e'
     mov byte [rsp + 2], 'l'
     mov byte [rsp + 3], 'l'
@@ -33,7 +33,7 @@ _printFromStack:
 
     mov rax, 1
     mov rdi, 1
-    mov rsi, [rsi]
+    lea rsi, [rsp]
     mov rdx, 16
     syscall
 
